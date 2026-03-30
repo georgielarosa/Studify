@@ -1,0 +1,30 @@
+{
+  "assignments": [
+    {
+      "title": "Chapter 3 Reading",
+      "courseName": "Biology 101",
+      "dueDate": "2026-04-02",
+      "status": "Not started",
+      "completed": false
+    },
+    {
+      "title": "Problem Set 5",
+      "courseName": "Calculus I",
+      "dueDate": "2026-04-04",
+      "status": "In progress",
+      "completed": false
+    },
+    {
+      "title": "Lab Report",
+      "courseName": "Chemistry",
+      "dueDate": "2026-03-29",
+      "status": "Completed",
+      "completed": true
+    }
+  ],
+  "courseColors": {
+    "Biology 101": "#9ec5ff",
+    "Calculus I": "#a7e8b5",
+    "Chemistry": "#ffd3a5"
+  }
+}
