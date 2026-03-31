@@ -31,9 +31,20 @@ class Assignment {
   +Status statusFromString(text)
 }
 
+class SortMode {
+  <<enumeration>>
+  DueDate
+  CourseName
+}
+
+class FilterMode {
+  <<enumeration>>
+  All
+  Completed
+  Incomplete
+}
+
 class PlannerManager {
-  +enum SortMode { DueDate, CourseName }
-  +enum FilterMode { All, Completed, Incomplete }
   -QVector~Assignment~ m_assignments
   -QMap~QString,QColor~ m_courseColors
   +bool addAssignment(assignment, error)
@@ -93,4 +104,6 @@ PlannerManager ..> FileHandler : load/save
 FileHandler ..> Assignment : serialize
 MainWindow --> PlannerManager : uses
 Assignment --> Status : uses
+PlannerManager --> SortMode : uses
+PlannerManager --> FilterMode : uses
 ```
