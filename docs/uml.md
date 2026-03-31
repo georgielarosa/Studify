@@ -2,8 +2,14 @@
 
 ```mermaid
 classDiagram
+class Status {
+  <<enumeration>>
+  NotStarted
+  InProgress
+  Completed
+}
+
 class Assignment {
-  +enum Status { NotStarted, InProgress, Completed }
   -QString m_title
   -QString m_courseName
   -QDate m_dueDate
@@ -57,10 +63,17 @@ class MainWindow {
   -QString m_dataPath
   +MainWindow(parent)
   +void closeEvent(event)
-  +slots: onAddClicked(), onDeleteClicked(), onToggleCompletedClicked()
-  +slots: onSaveClicked(), onSortChanged(), onFilterChanged()
-  +slots: onSelectionChanged(), onTableDoubleClicked(row,col)
-  +slots: onQuickAdd(), onThemeChanged(), onCourseColors()
+  +void onAddClicked()
+  +void onDeleteClicked()
+  +void onToggleCompletedClicked()
+  +void onSaveClicked()
+  +void onSortChanged()
+  +void onFilterChanged()
+  +void onSelectionChanged()
+  +void onTableDoubleClicked(row,col)
+  +void onQuickAdd()
+  +void onThemeChanged()
+  +void onCourseColors()
   -void buildUi()
   -void refreshTable()
   -Assignment readInputs(error) const
@@ -79,4 +92,5 @@ PlannerManager o-- Assignment : manages
 PlannerManager ..> FileHandler : load/save
 FileHandler ..> Assignment : serialize
 MainWindow --> PlannerManager : uses
+Assignment --> Status : uses
 ```
